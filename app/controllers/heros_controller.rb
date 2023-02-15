@@ -2,7 +2,7 @@ class HerosController < ApplicationController
   before_action :set_hero, only: %i[show]
 
   def index
-    @heros = Heros.all
+    @heros = Hero.all
   end
 
   def create

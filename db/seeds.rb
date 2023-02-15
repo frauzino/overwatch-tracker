@@ -18,19 +18,19 @@ heroes = [
 ]
 
 maps = [
-  {name: "Blizzard World", type: "hybrid"}, {name: "Busan", type: "control"}, {name: "Dorado", type: "escort"},
-  {name: "Eichenwalde", type: "hybrid"}, {name: "Havana", type: "escort"}, {name: "Hollywood", type: "hybrid"},
-  {name: "Ilios", type: "control"}, {name: "Junkertown", type: "escort"}, {name: "King's Row", type: "hybrid"},
-  {name: "Lijiang Tower", type: "control"}, {name: "Nepal", type: "control"}, {name: "Numbani", type: "hybrid"},
-  {name: "Oasis", type: "control"}, {name: "Rialto", type: "escort"}, {name: "Route 66", type: "escort"},
-  {name: "Watchpoint: Gibraltar", type: "escort"}, {name: "Circuit Royal", type: "escort"},
-  {name: "Midtown", type: "hybrid"}, {name: "Paraiso", type: "hybrid"}, {name: "Colosseo", type: "push"},
-  {name: "Esperanca", type: "push"}, {name: "New Queen Street", type: "push"}, {name: "Antarctic Peninsula", type: "control"}
+  {name: "Blizzard World", category: "hybrid"}, {name: "Busan", category: "control"}, {name: "Dorado", category: "escort"},
+  {name: "Eichenwalde", category: "hybrid"}, {name: "Havana", category: "escort"}, {name: "Hollywood", category: "hybrid"},
+  {name: "Ilios", category: "control"}, {name: "Junkertown", category: "escort"}, {name: "King's Row", category: "hybrid"},
+  {name: "Lijiang Tower", category: "control"}, {name: "Nepal", category: "control"}, {name: "Numbani", category: "hybrid"},
+  {name: "Oasis", category: "control"}, {name: "Rialto", category: "escort"}, {name: "Route 66", category: "escort"},
+  {name: "Watchpoint: Gibraltar", category: "escort"}, {name: "Circuit Royal", category: "escort"},
+  {name: "Midtown", category: "hybrid"}, {name: "Paraiso", category: "hybrid"}, {name: "Colosseo", category: "push"},
+  {name: "Esperanca", category: "push"}, {name: "New Queen Street", category: "push"}, {name: "Antarctic Peninsula", category: "control"}
 ]
 
 puts "Creating user with email: a@a.a and password secret"
 
-User.Create(
+User.create(
   email: "a@a.a",
   password: "secret",
   gamertag: "slayer69"
@@ -40,8 +40,8 @@ puts "building database of all overwatch Heroes"
 
 heroes.each do |hero|
   Hero.create(
-    name: hero.name,
-    role: hero.role
+    name: hero[:name],
+    role: hero[:role]
   )
   puts "made #{Hero.last.name}"
 end
@@ -51,8 +51,8 @@ puts "Building database of all overwatch competitive maps"
 
 maps.each do |map|
   Map.create(
-    name: map.name,
-    type: map.type
+    name: map[:name],
+    category: map[:category]
   )
   puts "made #{Map.last.name}"
 end

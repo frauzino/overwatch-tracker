@@ -1,7 +1,7 @@
 class MapsController < ApplicationController
   before_action :set_map, only: %i[show]
   def index
-    @maps = Maps.all
+    @maps = Map.all
   end
 
   def create
