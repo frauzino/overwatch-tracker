@@ -28,6 +28,13 @@ maps = [
   {name: "Esperanca", category: "push"}, {name: "New Queen Street", category: "push"}, {name: "Antarctic Peninsula", category: "control"}
 ]
 
+puts "cleaning the DB"
+Hero.destroy_all
+Map.destroy_all
+Match.destroy_all
+User.destroy_all
+puts "DB is clean!"
+
 puts "Creating user with email: a@a.a and password secret"
 
 User.create(
