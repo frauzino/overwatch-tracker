@@ -1,0 +1,8 @@
+<div class="match_form">
+  <%= simple_form_for [@map, @hero, @match] do |f| %>
+    <%= f.input :map, :collection => @maps %>
+    <%= f.input :hero, :collection => @heroes %>
+    <%= f.input :win, :collection => [true, false] %>
+    <%= f.submit "Add a new match", class: "submit" %>
+  <% end %>
+</div>

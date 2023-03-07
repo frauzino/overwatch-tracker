@@ -1,7 +1,7 @@
 class Match < ApplicationRecord
   belongs_to :user
-  has_one :map
-  has_one :hero
+  belongs_to :map
+  belongs_to :hero
 
-  validates :win, presence: true
+  # validates :win, presence: true
 end

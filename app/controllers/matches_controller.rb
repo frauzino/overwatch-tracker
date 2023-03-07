@@ -1,5 +1,8 @@
 class MatchesController < ApplicationController
   before_action :set_match, only: %i[show edit update destroy]
+  before_action :set_maps_heroes_matches, only: %i[new create]
+  before_action :set_map_hero, only: %i[new create]
+
   def index
     @matches = Matches.all
   end
@@ -9,11 +12,14 @@ class MatchesController < ApplicationController
   end
 
   def create
-    @match = Match.new(params)
+    @match = Match.new(match_params)
+    @match.user = current_user
+    @match.hero = @hero
+    @match.map = @map
     if @match.save
-      redirect_to match_path(@match)
+      redirect_to root_path
     else
-      render :new, status: :unprocessable_entity
+      render 'pages/home', status: :unprocessable_entity
     end
   end
 
@@ -33,10 +39,21 @@ class MatchesController < ApplicationController
   private
 
   def match_params
-    params.require(:user_id, :hero_id, :map_id, :win)
+    params.require(:match).permit(:hero_id, :map_id, :win)
   end
 
   def set_match
     @match = Match.find(params[:id])
+  end
+
+  def set_map_hero
+    @map = Map.find(params[:match][:map].to_i)
+    @hero = Hero.find(params[:match][:hero].to_i)
+  end
+
+  def set_maps_heroes_matches
+    @maps = Map.all
+    @heroes = Hero.all
+    @matches = Match.all
   end
 end

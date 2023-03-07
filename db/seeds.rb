@@ -29,12 +29,14 @@ maps = [
 ]
 
 puts "cleaning the DB"
+
+Match.destroy_all
 Hero.destroy_all
 Map.destroy_all
-Match.destroy_all
 User.destroy_all
-puts "DB is clean!"
 
+puts "DB is clean!"
+sleep(2)
 puts "Creating user with email: a@a.a and password secret"
 
 User.create(
@@ -54,6 +56,7 @@ heroes.each do |hero|
 end
 
 puts "Heroes database built"
+sleep(2)
 puts "Building database of all overwatch competitive maps"
 
 maps.each do |map|
@@ -65,3 +68,18 @@ maps.each do |map|
 end
 
 puts "Maps database built"
+sleep(2)
+puts "Building database of fake matches"
+
+10.times do
+  var = rand(1..2)
+  Match.create(
+    map: Map.all.sample,
+    hero: Hero.all.sample,
+    user: User.first,
+    win: var == 1
+  )
+  puts "made match where user played #{Match.last.hero.name} on #{Match.last.map.name}"
+end
+
+puts "Matches database built"

@@ -1,27 +1,34 @@
 <div class="home-container">
+  <%= render "pages/new_match" %>
   <div class="info-container">
-    <h4>Maps</h4>
-    <% @maps.each do |map| %>
+    <h4>Maps Played</h4>
+    <% @maps_played.each do |map| %>
     <div>
       <%= map.name %>
+      <%= @map_count[map] %>
     </div>
     <% end %>
   </div>
   <div class="info-container">
-    <h4>Heroes</h4>
-    <% @heroes.each do |hero| %>
+    <h4>Heroes Played</h4>
+    <% @heroes_played.each do |hero| %>
     <div>
       <%= hero.name %>
+      <%= @hero_count[hero] %>
     </div>
     <% end %>
   </div>
   <div class="info-container">
-    <h4>Matches</h4>
+    <h4>Matches Played</h4>
     <% @matches.each do |match| %>
     <div>
-      <%= match.hero %>
-      <%= match.map %>
-      <%= match.win %>
+      <%= match.hero.name %>
+      <%= match.map.name %>
+      <% if match.win == true %>
+        <%= "Win" %>
+      <% else %>
+        <%= "loss" %>
+      <% end %>
     </div>
     <% end %>
   </div>
