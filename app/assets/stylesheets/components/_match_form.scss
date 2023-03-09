@@ -1,6 +1,9 @@
 .match-form-container {
   display: flex;
   justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+
 }
 
 #new_match {
@@ -8,9 +11,24 @@
   justify-content: center;
   width: 100%;
   gap: 10px;
-  align-items: last baseline;
+  align-items: end;
+}
+
+#match_hero, #match_map, #match_win {
+  border-radius: 0;
+  border: none;
+  height: 38px;
 }
 
 #add_match_button {
-  height: 40%
+  height: 38px;
+  background-color: $overwatch_orange;
+  border: none;
+  color: $light-gray;
+  padding: 5px;
+  margin-bottom: 1rem;
+
+  &:hover {
+    background-color: #d45a14;
+  }
 }

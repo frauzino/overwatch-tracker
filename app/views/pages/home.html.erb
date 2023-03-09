@@ -1,12 +1,41 @@
-<% if user_signed_in? %>
-  <div class="home-container">
+<div class="home-container">
+  <h1>Overwatch Performance Tracker</h1>
+  <% if user_signed_in? %>
     <%= render "pages/new_match" %>
     <div class= "stats-container">
       <div class="spec-stats-container">
-        <h4>Maps Played</h4>
+        <div class="stat-title">
+          <h4>Heroes Played</h4>
+        </div>
         <div class="stats-no-title">
           <div class="element-names">
-            <h5>Name</h5>
+            <h5>Hero</h5>
+            <% @maps_played.each do |hero| %>
+              <span><%= hero.name %></span>
+            <% end %>
+          </div>
+          <div class="element-count">
+            <h5>Frequency</h5>
+            <% @heroes_played.each do |hero| %>
+              <span><%= "x #{@map_count[hero]}" %></span>
+            <% end %>
+          </div>
+          <div class="element-win">
+            <h5>Win Rate</h5>
+            <% @hero_win_rates.each do |number| %>
+              <%# <% raise %>
+              <span><%= number %></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="spec-stats-container">
+        <div class="stat-title">
+          <h4>Maps Played</h4>
+        </div>
+        <div class="stats-no-title">
+          <div class="element-names">
+            <h5>Map</h5>
             <% @maps_played.each do |map| %>
               <span><%= map.name %></span>
             <% end %>
@@ -20,37 +49,15 @@
           <div class="element-win">
             <h5>Win Rate</h5>
             <% @map_win_rates.each do |number| %>
-              <%# <% raise %>
               <span><%= number %></span>
             <% end %>
           </div>
         </div>
       </div>
       <div class="spec-stats-container">
-        <h4>Heroes Played</h4>
-        <div class="stats-no-title">
-          <div class="element-names">
-            <h5>Name</h5>
-            <% @heroes_played.each do |hero| %>
-              <span><%= hero.name %></span>
-            <% end %>
-          </div>
-          <div class="element-count">
-            <h5>Frequency</h5>
-            <% @heroes_played.each do |hero| %>
-              <span><%= "x #{@hero_count[hero]}" %></span>
-            <% end %>
-          </div>
-          <div class="element-win">
-            <h5>Win Rate</h5>
-            <% @hero_win_rates.each do |number| %>
-              <span><%= number %></span>
-            <% end %>
-          </div>
+        <div class="stat-title">
+          <h4>Matches Played</h4>
         </div>
-      </div>
-      <div class="spec-stats-container">
-        <h4>Matches Played</h4>
         <div class="stats-no-title">
           <div class="element-names">
             <h5>Match</h5>
@@ -73,7 +80,7 @@
         </div>
       </div>
     </div>
-  </div>
-<% else %>
-  <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-<% end %>
+  <% else %>
+    <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+  <% end %>
+</div>

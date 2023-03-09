@@ -1,0 +1,36 @@
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.spec-stats-container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  align-items: center;
+  width: fit-content;
+  height: 400px;
+  background-color: $med-blue;
+}
+
+.stats-no-title {
+  height: 100%;
+  overflow-y: auto;
+  h5 {
+    color: rgb(169, 184, 200)
+  }
+}
+
+.stat-title {
+  width: 100%;
+  background-color: $background-blue;
+  text-align: center;
+  margin-bottom: 15px;
+  h4 {
+    margin-bottom: 0;
+    padding: 15px;
+    color: $overwatch-orange;
+  }
+}

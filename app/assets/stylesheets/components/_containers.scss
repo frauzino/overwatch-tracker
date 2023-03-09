@@ -2,27 +2,14 @@
   display: flex;
   margin-top:50px;
   margin-bottom: 50px;
-  padding-top: 100px;
+  padding-top: 50px;
   padding-bottom: 200px;
   justify-content: center;
 }
 
 .home-container {
-  width: 90vw
-}
-
-.stats-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.spec-stats-container {
   display: flex;
   flex-direction: column;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   align-items: center;
-  width: fit-content;
+  width: 90vw
 }

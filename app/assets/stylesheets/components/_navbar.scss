@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $med-blue;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +10,12 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.logo {
+  width: 80px;
+}
+
+.nav-link {
+  color: $overwatch-orange;
 }
