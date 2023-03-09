@@ -8,17 +8,21 @@
 }
 
 .home-container {
-  display: flex;
-  justify-content: space-between;
   width: 90vw
 }
 
-.info-container {
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.spec-stats-container {
   display: flex;
   flex-direction: column;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 25%;
   align-items: center;
+  width: fit-content;
 }

@@ -16,6 +16,7 @@ class MatchesController < ApplicationController
     @match.user = current_user
     @match.hero = @hero
     @match.map = @map
+    # raise
     if @match.save
       redirect_to root_path
     else

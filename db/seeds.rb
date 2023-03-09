@@ -14,7 +14,7 @@ heroes = [
   {name: "Soldier:76", role: "damage"}, {name: "Sojourn", role: "damage"}, {name: "Sombra", role: "damage"},
   {name: "Symmetra", role: "damage"}, {name: "Torbjorn", role: "damage"}, {name: "Tracer", role: "damage"},
   {name: "Widowmaker", role: "damage"}, {name: "Winston", role: "tank"}, {name: "Wrecking Ball", role: "tank"},
-  {name: "Zarya", role: "tank"}, {name: "Zenyatta", role: "tank"}
+  {name: "Zarya", role: "tank"}, {name: "Zenyatta", role: "support"}
 ]
 
 maps = [

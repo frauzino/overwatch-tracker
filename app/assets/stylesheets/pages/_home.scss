@@ -1,1 +1,27 @@
 // Specific CSS for your home-page
+.stats-no-title {
+  display: flex;
+  gap: 10px;
+}
+
+.element-names {
+  display:flex;
+  flex-direction: column;
+}
+
+.element-count {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.element-win {
+  display: flex;
+  flex-direction: column;
+}
+
+h4 {
+  border-bottom: solid 1px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
