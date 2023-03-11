@@ -7,80 +7,100 @@
         <div class="stat-title">
           <h4>Heroes Played</h4>
         </div>
-        <div class="stats-no-title">
-          <div class="element-names">
-            <h5>Hero</h5>
-            <% @maps_played.each do |hero| %>
-              <span><%= hero.name %></span>
-            <% end %>
-          </div>
-          <div class="element-count">
-            <h5>Frequency</h5>
-            <% @heroes_played.each do |hero| %>
-              <span><%= "x #{@map_count[hero]}" %></span>
-            <% end %>
-          </div>
-          <div class="element-win">
-            <h5>Win Rate</h5>
-            <% @hero_win_rates.each do |number| %>
-              <%# <% raise %>
-              <span><%= number %></span>
-            <% end %>
-          </div>
+        <div class="stats-table">
+          <table>
+            <tr class="titles">
+              <th><h5>Hero</h5>
+                <%= select(Hero.all, {prompt: true}) %>
+              </th>
+              <th><h5>Frequency</h5></th>
+              <th><h5>Win Rate</h5></th>
+            </tr>
+            <div class="stats">
+              <% @heroes_played.each do |hero| %>
+                <tr>
+                  <th><%= hero.name %></th>
+                  <th style="text-align: center">
+                    <%= "x #{count = @matches.where(hero: hero).count}" %>
+                  </th>
+                  <th>
+                    <% wins = @matches.where(hero: hero, win: true).count.to_f %>
+                    <%= "#{(wins / count * 100).to_i}%" %>
+                  </th>
+                </tr>
+              <% end %>
+            </div>
+          </table>
         </div>
       </div>
       <div class="spec-stats-container">
         <div class="stat-title">
           <h4>Maps Played</h4>
         </div>
-        <div class="stats-no-title">
-          <div class="element-names">
-            <h5>Map</h5>
-            <% @maps_played.each do |map| %>
-              <span><%= map.name %></span>
-            <% end %>
-          </div>
-          <div class="element-count">
-            <h5>Frequency</h5>
-            <% @maps_played.each do |map| %>
-              <span><%= "x #{@map_count[map]}" %></span>
-            <% end %>
-          </div>
-          <div class="element-win">
-            <h5>Win Rate</h5>
-            <% @map_win_rates.each do |number| %>
-              <span><%= number %></span>
-            <% end %>
-          </div>
+        <div class="stats-table">
+          <table>
+            <tr class="titles">
+              <th><h5>Maps</h5></th>
+              <th><h5>Frequency</h5></th>
+              <th><h5>Win Rate</h5></th>
+            </tr>
+            <div class="stats">
+              <% @maps_played.each do |map| %>
+                <tr>
+                  <th><%= map.name %></th>
+                  <th style="text-align: center">
+                    <%= "x #{count = @matches.where(map: map).count}" %>
+                  </th>
+                  <th>
+                    <% wins = @matches.where(map: map, win: true).count.to_f %>
+                    <%= "#{(wins / count * 100).to_i}%" %>
+                  </th>
+                </tr>
+              <% end %>
+            </div>
+          </table>
         </div>
       </div>
       <div class="spec-stats-container">
         <div class="stat-title">
           <h4>Matches Played</h4>
         </div>
-        <div class="stats-no-title">
-          <div class="element-names">
-            <h5>Match</h5>
-            <% @matches_played.each do |match| %>
-              <span><%= "#{match.hero.name} on #{match.map.name}" %></span>
-            <% end %>
-          </div>
-          <div class="element-count">
-            <h5>Frequency</h5>
-            <% @match_count.each do |match| %>
-              <span><%= "x #{match[1]}" %></span>
-            <% end %>
-          </div>
-          <div class="element-win">
-            <h5>Win Rate</h5>
-            <% @match_win_rates.each do |number| %>
-              <span><%= number %></span>
-            <% end %>
-          </div>
+        <div class="stats-table">
+          <table>
+            <tr class="titles">
+              <th><h5>Match</h5></th>
+              <th><h5>Frequency</h5></th>
+              <th><h5>Win Rate</h5></th>
+            </tr>
+            <div class="stats">
+              <% @matches_played.each do |match| %>
+                <tr>
+                  <th><%= "#{match.hero.name} on #{match.map.name}" %></th>
+                  <th style="text-align: center">
+                    <%= "x #{count = @matches.where(map: match.map, hero: match.hero).count}" %>
+                  </th>
+                  <th>
+                    <% wins = @matches.where(map: match.map, hero: match.hero, win: true).count.to_f %>
+                    <%= "#{(wins / count * 100).to_i}%" %>
+                  </th>
+                </tr>
+              <% end %>
+            </div>
+          </table>
         </div>
       </div>
     </div>
   <% else %>
     <%= link_to "Login", new_user_session_path, class: "nav-link" %>
   <% end %>
+  <div>
+    <div style="display:flex; margin-top: 100px; gap: 20px;">
+      <a href="#">yes</a>
+      <a href="#">no</a>
+    </div>
+    <div style="display:flex; margin-top: 30px; gap: 20px;">
+      <span style="background-color: blue; padding: 3px;">yes</span>
+      <span style="background-color: blue; padding: 3px;">no</span>
+    </div>
+  </div>
 </div>

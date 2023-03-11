@@ -1,13 +1,14 @@
 .stats-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .spec-stats-container {
   display: flex;
   flex-direction: column;
-  padding: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   align-items: center;
   width: fit-content;
@@ -23,9 +24,30 @@
   }
 }
 
+.stats-table {
+  height: 100%;
+  overflow-y: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  h5 {
+    color: rgb(169, 184, 200)
+  }
+  table {
+    border-collapse: separate;
+    border-spacing: 10px;
+  }
+}
+
+.titles {
+  position: sticky;
+  top: 0px;
+  background-color: $med-blue;
+}
+
 .stat-title {
   width: 100%;
-  background-color: $background-blue;
+  background-color: #183449;
   text-align: center;
   margin-bottom: 15px;
   h4 {
